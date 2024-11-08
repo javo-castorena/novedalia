@@ -15,6 +15,19 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('inicio')" :active="request()->routeIs('inicio')">
+                        {{ __('Inicio') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('catalogos.index')" :active="request()->routeIs('catalogos.index')">
+                        {{ __('Catalogo') }}
+                    </x-nav-link>
+
+
+                    
+
+                    
                 </div>
             </div>
 
@@ -32,11 +45,11 @@
                             </div>
                         </button>
                     </x-slot>
-
+                    
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
+                        <!--<x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
-                        </x-dropdown-link>
+                        </x-dropdown-link> -->
 
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">

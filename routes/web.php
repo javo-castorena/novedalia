@@ -7,14 +7,34 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
+
+Route::middleware('auth')->resource('/catalogos', App\Http\Controllers\CatalogoController::class);
+
+//Route::resource('/catalogos', App\Http\Controllers\CatalogoController::class);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/inicio', function () {
+    return view('welcome');
+})->middleware(['auth', 'verified'])->name('inicio');
+
+
+
+
+
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
 
 require __DIR__.'/auth.php';
