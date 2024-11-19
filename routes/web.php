@@ -2,9 +2,10 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PortafolioController;
 
 // Route::get('/', function () {
-//     return view('welcome');
+// return view('welcome');
 // });
 
 
@@ -27,6 +28,11 @@ Route::get('/inicio', function () {
 // Route::get('/inicio', function () {
 //     return view('welcome');
 // })->middleware(['auth', 'verified'])->name('inicio');
+
+// Ruta para la URL raíz, manejada por el controlador PortafolioController
+Route::get('/', [PortafolioController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('inicio');
 
 
 
